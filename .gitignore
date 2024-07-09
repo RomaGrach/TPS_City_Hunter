@@ -78,3 +78,4 @@ crashlytics-build.properties
 
 **/*.a
 *.a
+/enviroment_assets/Library/SourCeAssetDB
