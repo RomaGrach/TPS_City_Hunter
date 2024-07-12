@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/PolygonHeist/Scenes/Character_Demo.unity
+- path: Assets/PolygonHeist/Scenes/Demo.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
