@@ -7,6 +7,7 @@ namespace TPSShooter
     [RequireComponent(typeof(WeaponPickUp))]
     public class WeaponPickUpAdditional : MonoBehaviour
     {
+        public Vector3 localScale;
 
         private Animator _animator;
 
@@ -23,6 +24,8 @@ namespace TPSShooter
         {
             _animator.enabled = false;
             transform.localScale = Vector3.one;
+            transform.localScale = localScale;
+
         }
 
         private void OnWeaponDropped()

@@ -9,8 +9,9 @@ namespace TPSShooter
     public Transform parentBone;
     public Vector3 localPosition;
     public Vector3 localEulerAngles;
+    public Vector3 localScale;
 
-    private Collider _collider;
+        private Collider _collider;
     private PlayerWeapon _playerWeapon;
 
     public event System.Action OnWeaponPickedUpEvent;
@@ -47,8 +48,10 @@ namespace TPSShooter
       transform.parent = parentBone;
       transform.localPosition = localPosition;
       transform.localEulerAngles = localEulerAngles;
+      transform.localScale = localScale;
 
       _playerWeapon.UpdateParent();
+      transform.localScale = localScale;
 
       if (OnWeaponPickedUpEvent != null)
       {

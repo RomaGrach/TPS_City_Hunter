@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/PolygonMilitary/Scenes/Demo_01.unity
+- path: Assets/TPS Shooter (Military style)/Scenes/Military.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
