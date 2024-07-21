@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DialogCore : MonoBehaviour
+public class QuestCore : MonoBehaviour
 {
-    
-    private GameObject DialogObject;
+    public int score;
+    private GameObject QuestObject;
     private bool Continue;
     void Start()
     {
@@ -15,20 +15,20 @@ public class DialogCore : MonoBehaviour
 
     public void Check()
     {
-        DialogObject = GameObject.FindGameObjectWithTag("DialogCore");
-        if (DialogObject != null) Continue = true;
+        QuestObject = GameObject.FindGameObjectWithTag("QuestCore");
+        if (QuestObject != null) Continue = true;
         else Continue = false;
     }
 
-    public void InvokeDialog()
+    public void NextQuest()
     {
         if (Continue)
         {
-
+            score = 0;
         }
         else
         {
-            Debug.LogError("No DialogObject Found");
+            Debug.LogError("No QuestObject Found");
         }
     }
 }
