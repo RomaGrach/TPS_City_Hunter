@@ -19,7 +19,7 @@ namespace TPSShooter
 
     private Coroutine fireCoroutine;
 
-    private int MaxWeaponCount = 8;
+    public int MaxWeaponCount = 8;
 
     private void ValidateWeapons()
     {
