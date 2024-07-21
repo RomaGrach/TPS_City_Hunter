@@ -36,5 +36,9 @@ namespace LightDev
 
     public static Event<EnemyBullet> PlayerBulletHit;
     public static Event<ZombieBehaviour> PlayerZombieHit;
-  }
+
+        public static Event PlayerAmmoRefilled; // Новое событие
+
+
+    }
 }

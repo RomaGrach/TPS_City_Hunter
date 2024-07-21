@@ -25,7 +25,9 @@ namespace TPSShooter.UI
 
       Events.PlayerReloaded += UpdateWeaponCountText;
       Events.PlayerFire += UpdateWeaponCountText;
-    }
+
+            Events.PlayerAmmoRefilled += UpdateWeaponCountText; // Подписка на новое событие
+        }
 
     public override void Unsubscribe()
     {
@@ -41,7 +43,9 @@ namespace TPSShooter.UI
       Events.GameResumed -= TryShow;
       Events.PlayerReloaded -= UpdateWeaponCountText;
       Events.PlayerFire -= UpdateWeaponCountText;
-    }
+
+            Events.PlayerAmmoRefilled -= UpdateWeaponCountText; // Отписка от нового события
+        }
 
     private void TryShow()
     {

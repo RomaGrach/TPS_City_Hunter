@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/TPS Shooter (Military style)/Scenes/Military.unity
+- path: Assets/TPS Shooter (Military style)/Scenes/DemoWithoutGameManager.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
