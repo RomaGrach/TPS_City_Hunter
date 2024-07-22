@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/TPS Shooter (Military style)/Scenes/Advanced.unity
+- path: Assets/Scenes/TrainingLevel.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
