@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,17 @@ using UnityEngine.Events;
 
 public class QuestScript : MonoBehaviour
 {
-    public string New_quest_name;
-    public string New_quest_description;
-    public UnityEvent Quest_event;
+    public int QuestInd = -1;
+    public int ConditionInd = -1;
+    private QuestCore questCore;
+    private bool Continue;
     void Start()
     {
-        Quest_event.AddListener(GameObject.FindGameObjectWithTag("QuestCore").GetComponent<QuestCore>().NextQuest);
+        Check();
     }
-
+    public void Check()
+    {
+        try { questCore = GameObject.FindGameObjectWithTag("QuestCore").GetComponent<QuestCore>(); Continue = true; }
+        catch { Continue = false; }
+    }
 }

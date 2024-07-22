@@ -5,30 +5,36 @@ using UnityEngine.Events;
 
 public class QuestCore : MonoBehaviour
 {
-    public int score;
     private GameObject QuestObject;
-    private bool Continue;
+    private bool Continue = true;
+    public List<quest> Quests;
+    
     void Start()
     {
-        Check();
     }
-
-    public void Check()
-    {
-        QuestObject = GameObject.FindGameObjectWithTag("QuestCore");
-        if (QuestObject != null) Continue = true;
-        else Continue = false;
-    }
-
-    public void NextQuest()
+    private void NextQuest(int QuestId)
     {
         if (Continue)
         {
-            score = 0;
+            if (Quests.Count <= 0) Continue = false;
+            else Quests.RemoveAt(QuestId);
         }
         else
         {
             Debug.LogError("No QuestObject Found");
         }
     }
+    public void CompleteCond(int QuestInd, int ConditionInd)
+    {
+        try { Quests[QuestInd].conditions.RemoveAt(ConditionInd); }
+        catch { }
+        if (Quests.Count <= 0) NextQuest(QuestInd);
+    }
+}
+[System.Serializable]
+public class quest
+{
+    public string name = "Unnamed";
+    public string description = "probably nothing";
+    public List<string> conditions;
 }
