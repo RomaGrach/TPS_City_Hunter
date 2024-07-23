@@ -358,6 +358,7 @@
 "Assets/Scripts/DialogCore.cs"
 "Assets/Scripts/QuestCore.cs"
 "Assets/Scripts/QuestScript.cs"
+"Assets/Scripts/QuestScripts/TrainingLevel/PickUp.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
