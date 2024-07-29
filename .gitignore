@@ -79,3 +79,18 @@ crashlytics-build.properties
 **/*.a
 *.a
 /enviroment_assets/Library/SourCeAssetDB
+Library/
+
+# Additional Unity generated files
+/[Ll]ibrary/Artifacts/
+/[Ll]ibrary/ScriptAssemblies/
+/[Ll]ibrary/Search/
+/[Ll]ibrary/ShaderCache/
+/[Ll]ibrary/SourceAssetDB
+/[Ll]ibrary/metadata/
+/[Ll]ibrary/PackageCache/
+/[Ll]ibrary/StateCache/
+/[Ll]ibrary/AssetImportState/
+/[Ll]ibrary/Artifacts/
+/[Ll]ibrary/BuildPlayerData/
+/[Ll]ibrary/BuildPlayerDataCache/
