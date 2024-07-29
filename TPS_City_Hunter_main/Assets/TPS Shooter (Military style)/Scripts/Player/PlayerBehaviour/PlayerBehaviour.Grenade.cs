@@ -21,8 +21,10 @@ namespace TPSShooter
       if (IsThrowingGrenade) return;
       if (IsReloading) return;
       if (IsDrivingVehicle) return;
+      if (grenadeSettings.GrenadeAmo <= 0) return;
+            grenadeSettings.GrenadeAmo -= 1;
 
-      GrenadeStartThrow();
+            GrenadeStartThrow();
     }
 
     private void OnGrenadeFinishThrowRequest()

@@ -8,5 +8,6 @@ namespace TPSShooter
     public GameObject GrenadePrefab;
     public Transform GrenadePosition;
     public Transform GrenadeArmParent;
+        public int GrenadeAmo;
   }
 }

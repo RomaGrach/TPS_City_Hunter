@@ -84769,6 +84769,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114241683765356624, guid: e3c5c4aeb49f243ca91149574e7dbc11, type: 3}
+      propertyPath: grenadeSettings.GrenadeAmo
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
