@@ -1,34 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 public class DialogCore : MonoBehaviour
 {
-    
-    private GameObject DialogObject;
-    private bool Continue;
+
+    private bool Continue = true;
+    public shownDialog[] Characters;
+    private Dictionary<string, dialog[]> characters;
+
     void Start()
     {
-        Check();
+        for (int i = 0; i < Characters.Length; i++) characters[Characters[i].name] = Characters[i].dialogs;
     }
-
-    public void Check()
-    {
-        DialogObject = GameObject.FindGameObjectWithTag("DialogCore");
-        if (DialogObject != null) Continue = true;
-        else Continue = false;
-    }
-
-    public void InvokeDialog()
+    public void ChangeDialog(int DialogId, string name)
     {
         if (Continue)
         {
-
+            string text = characters[name][DialogId].text;
         }
         else
         {
-            Debug.LogError("No DialogObject Found");
+            Debug.LogError("No QuestObject Found");
         }
     }
+    [System.Serializable]
+    public class shownDialog
+    {
+        public string name;
+        public dialog[] dialogs;
+    }
+    [System.Serializable]
+    public class dialog
+    {
+        public string name = "Unnamed";
+        public string text = "probably nothing";
+        public AudioSource voiceLine;
+    }
 }
+
+
