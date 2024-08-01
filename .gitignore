@@ -78,6 +78,7 @@ crashlytics-build.properties
 
 **/*.a
 *.a
+*.DS_Store
 /enviroment_assets/Library/SourCeAssetDB
 TPS_City_Hunter_main/Library/
 enviroment_assets/Library/
