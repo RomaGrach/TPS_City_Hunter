@@ -6,7 +6,7 @@ public class DialogScript : MonoBehaviour
 {
     public string CharacterName = null;
     public int DialogInd = -1;
-    private DialogCore dialogCore;
+    public DialogCore dialogCore;
     private bool Continue = true;
 
     void Start()
