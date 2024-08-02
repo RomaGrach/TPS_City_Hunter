@@ -80,6 +80,12 @@ crashlytics-build.properties
 *.a
 /enviroment_assets/Library/SourCeAssetDB
 Library/
+*.DS_Store
+/enviroment_assets/Library/SourCeAssetDB
+TPS_City_Hunter_main/Library/
+enviroment_assets/Library/
+TPS_City_Hunter_main/Temp/
+enviroment_assets/Temp/
 
 # Additional Unity generated files
 /[Ll]ibrary/Artifacts/
