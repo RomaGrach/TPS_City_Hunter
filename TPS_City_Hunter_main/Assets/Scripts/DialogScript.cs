@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DialogScript : MonoBehaviour
 {
-    public string CharacterName = null;
-    public int DialogInd = -1;
+    public List<dialog> dialogs = new List<dialog>();
+    public bool Multiple = false;
+    public bool Repeatable = false;
     public DialogCore dialogCore;
     private bool Continue = true;
 
@@ -22,9 +23,19 @@ public class DialogScript : MonoBehaviour
     {
         if (Continue)
         {
-            dialogCore.ChangeDialog(DialogInd, CharacterName);
-            Continue = false;
+            for (int i = 0; i < dialogs.Count; i++) 
+            {
+                dialogCore.ChangeDialog(dialogs[i].ID, dialogs[i].name, Multiple);
+            }
+            if (!Repeatable) Continue = false;
         }
+
+    }
+    [System.Serializable]
+    public class dialog
+    {
+        public string name = "John Shooter";
+        public int ID = -1;
 
     }
 }

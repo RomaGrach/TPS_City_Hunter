@@ -7,15 +7,17 @@ using TMPro;
 public class DialogCore : MonoBehaviour
 {
 
-    private bool Continue = false;
     public GameObject Canvas;
     private TMP_Text Text;
     public shownDialog[] Characters;
     private Dictionary<string, dialog[]> characters = new Dictionary<string, dialog[]>();
     public bool DebugCheck = false;
-    private float fadeTime = 10f;
+    
+    
+    private List<dialogNamed> dialogLine = new List<dialogNamed>();
+    private bool Continue = false;
     private float prev = -1f;
-    public List<dialogNamed> dialogLine = new List<dialogNamed>();
+    private float fadeTime = 5f;
 
     private void Update()
     {
@@ -27,6 +29,7 @@ public class DialogCore : MonoBehaviour
                 dialogLine.RemoveAt(0);
                 if (dialogLine.Count > 0) ShowDialog();
                 else Continue = false;
+
             }
         }
     }
@@ -39,9 +42,9 @@ public class DialogCore : MonoBehaviour
         try { Text = Canvas.GetComponentInChildren<TMP_Text>(); }
         catch { }
     }
-    public void ChangeDialog(int DialogId, string name)
+    public void ChangeDialog(int DialogId, string name, bool sequence)
     {
-        dialogLine.Add(new dialogNamed(name, characters[name][DialogId].text, characters[name][DialogId].voiceLine));
+        if (dialogLine.Count <= 0 || sequence) dialogLine.Add(new dialogNamed(name, characters[name][DialogId].text, characters[name][DialogId].voiceLine));
         if (!Continue) ShowDialog();
     }
     private void ShowDialog()
