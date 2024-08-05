@@ -74,8 +74,8 @@ public class ScriptTrigger : MonoBehaviour
         public int Layer = -1;
         public bool check(bool and, string tag = null, GameObject obj = null, int layer = -1)
         {
-            Debug.Log($"Check tag:{Tag}, name:{Object.name}, layer:{Layer}");
-            Debug.Log($"Object tag:{tag}, name:{obj.name}, layer:{layer}");
+            //Debug.Log($"Check tag:{Tag}, name:{Object.name}, layer:{Layer}");
+            //Debug.Log($"Object tag:{tag}, name:{obj.name}, layer:{layer}");
             bool ans;
             if (and)
             {
@@ -84,7 +84,7 @@ public class ScriptTrigger : MonoBehaviour
                 return ans;
             }
             ans = (Tag != null && Tag == tag) || (Object != null && Object == obj) || (Layer > -1 && Layer == layer);
-            Debug.Log($"check:{ans}");
+            //Debug.Log($"check:{ans}");
             return ans;
         }
     }
