@@ -18,6 +18,8 @@ namespace TPSShooter
     public PlayerMovementSettings movementSettings = new PlayerMovementSettings();
     private PlayerAnimationParameters animationsParameters = new PlayerAnimationParameters();
 
+    public Transform parentBonePB;
+
     private CharacterController _characterController;
     private Animator _animator;
 
