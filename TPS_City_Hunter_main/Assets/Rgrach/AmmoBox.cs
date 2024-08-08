@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using LightDev;
 
 namespace TPSShooter
@@ -8,6 +8,10 @@ namespace TPSShooter
     {
         private bool playerInRange = false;
         private PlayerWeapon currentWeapon;
+        public float refillCooldown = 3f; // Время в секундах для пополнения патронов
+        private float refillTimer;
+
+        [SerializeField] private Image refillImage; // Ссылка на UI-элемент картинки
 
         private void OnTriggerEnter(Collider other)
         {
@@ -18,7 +22,8 @@ namespace TPSShooter
                 if (playerBehaviour != null)
                 {
                     currentWeapon = playerBehaviour.weaponSettings.CurrentWeapon;
-                    StartCoroutine(RefillAmmo());
+                    refillTimer = 0f; // Сбросить таймер
+                    UpdateRefillImageVisibility(); // Обновить видимость картинки
                 }
             }
         }
@@ -28,24 +33,46 @@ namespace TPSShooter
             if (other.CompareTag("Player"))
             {
                 playerInRange = false;
-                StopCoroutine(RefillAmmo());
+                refillImage.gameObject.SetActive(false); // Скрыть картинку
             }
         }
 
-        private IEnumerator RefillAmmo()
+        private void Update()
         {
-            while (playerInRange)
+            if (playerInRange && currentWeapon != null)
             {
-                if (currentWeapon != null && currentWeapon.BulletsAmount < 200)
+                if (currentWeapon.BulletsAmount < 200)
                 {
-                    currentWeapon.BulletsAmount += currentWeapon.MagCapacity;
-                    Events.PlayerAmmoRefilled.Call(); // Вызов события для обновления UI
-                    yield return new WaitForSeconds(3f);
+                    refillTimer += Time.deltaTime;
+                    refillImage.fillAmount = Mathf.Clamp01(refillTimer / refillCooldown); // Обновить заполнение картинки
+
+                    if (refillTimer >= refillCooldown)
+                    {
+                        currentWeapon.BulletsAmount += currentWeapon.MagCapacity;
+                        Events.PlayerAmmoRefilled.Call(); // Вызов события для обновления UI
+                        refillTimer = 0f; // Сбросить таймер после пополнения
+                    }
                 }
                 else
                 {
-                    yield return null;
+                    refillImage.gameObject.SetActive(false); // Скрыть картинку, если патроны полные
                 }
+            }
+            else if (refillImage.gameObject.activeSelf)
+            {
+                refillImage.fillAmount = 0; // Сбросить заполнение картинки
+            }
+        }
+
+        private void UpdateRefillImageVisibility()
+        {
+            if (currentWeapon != null && currentWeapon.BulletsAmount < 200)
+            {
+                refillImage.gameObject.SetActive(true); // Показать картинку
+            }
+            else
+            {
+                refillImage.gameObject.SetActive(false); // Скрыть картинку
             }
         }
     }
